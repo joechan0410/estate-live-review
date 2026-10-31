@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "estate-live-review",
+  "version": "1.1.0",
+  "description": "整合地产工作台的直播分析系统：项目知识、完整回放、逐主播评价、评论与留资分析，以及周报、月报和累计报告交付。",
+  "author": {
+    "name": "estate-live-review contributors"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "地产直播分析工作台",
+        "shortDescription": "逐主播复盘直播表现，分析客户问题与留资，生成可核验报告",
+        "longDescription": "连接本机地产工作台，复用项目知识、人员名册、实际交接、录音转写和已审核证据，完成七项加权评分、全量评论答法与留资关联分析，并续接周报、月报、累计看板及受密码保护的报告交付。保留当前规则和已完成阶段，支持依赖检查与工作区迁移。",
+        "developerName": "地产工作台",
+        "category": "Productivity",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "查看我的地产工作台直播分析系统，检查当前周进度并继续未完成的分析。",
+          "按实际出播主播复盘指定项目和日期，分析客户常见问题、实际答法与留资表现。",
+          "基于已审核证据更新直播周报、月报和累计看板，并核验报告及录音。"
+        ]
+      }
+    }
+  },
+  "repository": "https://github.com/joechan0410/estate-live-review",
+  "license": "MIT"
+}

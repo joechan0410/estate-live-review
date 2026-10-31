@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Python tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.11"
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Test audio review plugin tools
+        run: python -m unittest discover -s plugin/skills/douyin-live-replay-audio/scripts -p 'test_*.py' -v
+      - name: Test workspace plugin tools
+        run: python -m unittest discover -s plugin/skills/estate-live-workbench/scripts -p 'test_*.py' -v
+
+  web:
+    name: Web tests and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Run data contract tests
+        run: npm test
+      - name: Build production site
+        run: npm run build

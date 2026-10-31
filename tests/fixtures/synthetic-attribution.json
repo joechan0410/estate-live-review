@@ -1,0 +1,18 @@
+{
+  "scope": {"project": "synthetic-example", "period": "synthetic-session"},
+  "room_coverage": [{"room_id": "room-demo", "comments_complete": true, "leads_complete": true}],
+  "shifts": [
+    {"id": "shift-a", "room_id": "room-demo", "host_id": "host-a", "start": 0, "end": 3600, "verified": true},
+    {"id": "shift-b", "room_id": "room-demo", "host_id": "host-b", "start": 3600, "end": 7200, "verified": true}
+  ],
+  "comments": [
+    {"id": "comment-a", "room_id": "room-demo", "customer_id": "customer-one", "timestamp": 100, "eligible": true},
+    {"id": "comment-b", "room_id": "room-demo", "customer_id": "customer-two", "timestamp": 3700, "eligible": true},
+    {"id": "comment-no-submit", "room_id": "room-demo", "customer_id": "customer-three", "timestamp": 3800, "eligible": true}
+  ],
+  "leads": [
+    {"id": "lead-a", "room_id": "room-demo", "customer_id": "customer-one", "timestamp": 3000},
+    {"id": "lead-b", "room_id": "room-demo", "customer_id": "customer-two", "timestamp": 3900},
+    {"id": "lead-b-repeat", "room_id": "room-demo", "customer_id": "customer-two", "timestamp": 4000}
+  ]
+}

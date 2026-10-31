@@ -1,0 +1,5 @@
+# Media collection and archive conversion. FFmpeg/ffprobe must also be on PATH.
+# Transcript normalization and scoring use only the Python standard library.
+httpx>=0.27,<1
+m3u8>=6,<7
+soundfile>=0.12,<1

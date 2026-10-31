@@ -1,0 +1,157 @@
+{
+  "version": "real-estate-weekly-v5-2026-09-21",
+  "status": "reference-policy",
+  "reference_score": 70,
+  "grade_thresholds": {
+    "A": 80,
+    "B": 65
+  },
+  "silence_penalty_per_second": 1,
+  "fixed_baselines": {},
+  "dimensions": [
+    {
+      "key": "lead",
+      "weight": 25,
+      "label": "留资效率"
+    },
+    {
+      "key": "interaction",
+      "weight": 11,
+      "label": "互动"
+    },
+    {
+      "key": "conversion",
+      "weight": 16,
+      "label": "评论后留资"
+    },
+    {
+      "key": "core",
+      "weight": 5,
+      "label": "价值讲透"
+    },
+    {
+      "key": "flow",
+      "weight": 11,
+      "label": "表达组织"
+    },
+    {
+      "key": "cta",
+      "weight": 16,
+      "label": "小风车引导"
+    },
+    {
+      "key": "silence",
+      "weight": 16,
+      "label": "静默控制"
+    }
+  ],
+  "minimum_available_weight": 0,
+  "cta_quality_share": 0.6,
+  "cta_provisional_frequency_share": 0.4,
+  "phase_minimum_hours": 0,
+  "phase_minimum_reviewed_questions": 0,
+  "phase_scope": "按已核指标计算阶段评级；样本不足或缺测明确标注，完整周且七项均核实才给最终评级",
+  "reason": "Reference seven-dimension policy; adjust explicitly for the intended evaluation.",
+  "conversion_prior_strength": 5,
+  "conversion_baseline": "同项目合格客户ID去重后的合并留资率",
+  "score_scope": "已核样本初评，缺项不记零；未核静默给贡献范围",
+  "credit_rule": "latest_comment_before_lead_actual_host",
+  "zero_baseline": "missing_no_discrimination",
+  "final_requires_full_week": true,
+  "final_minimum_available_weight": 100,
+  "silence_scoring_source": "rechecked_non_speech",
+  "silence_scoring_enabled": true,
+  "silence_exclusion_kinds": [
+    "recording_gap",
+    "technical_audio_failure"
+  ],
+  "silence_threshold_seconds": 10,
+  "silence_threshold_operator": ">",
+  "silence_count_full_interval": true,
+  "silence_rule_updated": "2026-09-14",
+  "silence_rule_source": "Piecewise reference curve with a strict greater-than cutoff.",
+  "silence_score_curve": "piecewise_linear_with_strict_cutoff",
+  "silence_score_points": [
+    [
+      0,
+      100
+    ],
+    [
+      30,
+      100
+    ],
+    [
+      60,
+      95
+    ],
+    [
+      120,
+      85
+    ],
+    [
+      180,
+      75
+    ],
+    [
+      300,
+      60
+    ],
+    [
+      500,
+      40
+    ]
+  ],
+  "silence_zero_above_seconds_per_hour": 500,
+  "silence_zero_cutoff_operator": ">",
+  "silence_boundary_note": "保持提议曲线至500秒（40分）；每小时累计静默严格大于500秒直接归零",
+  "silence_legacy_linear_field_note": "silence_penalty_per_second仅为旧配置兼容字段；当前必须使用silence_score_curve，不得回退线性扣分。",
+  "semantic_rubric": {
+    "core": {
+      "scale": [
+        1,
+        5
+      ],
+      "percent": "native_score / 5 * 100",
+      "components": {
+        "base": 1,
+        "customer_benefit": [
+          0,
+          2
+        ],
+        "specific_support": [
+          0,
+          2
+        ]
+      }
+    },
+    "flow": {
+      "scale": [
+        1,
+        11
+      ],
+      "percent": "native_score / 11 * 100",
+      "components": {
+        "base": 1,
+        "useful_content": [
+          0,
+          4
+        ],
+        "text_comprehensibility": [
+          0,
+          2
+        ],
+        "non_redundancy": [
+          0,
+          2
+        ],
+        "filler_control": [
+          0,
+          2
+        ]
+      }
+    },
+    "missing": "null",
+    "strategy_rule": "未直答、转资料、私聊、替代推荐本身不扣分，按承接及实绩证据评价",
+    "asr_rule": "文本可理解度是代理观测；未做人工参考逐字对齐不能称识别准确率，ASR错误不直接归责主播"
+  }
+}

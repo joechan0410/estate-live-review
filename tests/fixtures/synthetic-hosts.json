@@ -1,0 +1,25 @@
+{
+  "scope": {"project": "synthetic-example", "period": "2030-01-07/2030-01-13"},
+  "full_week_complete": false,
+  "conversion_pool": {"n": 3, "d": 20},
+  "hosts": [
+    {
+      "host": "synthetic-host-a", "hours": 10,
+      "lead_records": 20, "comment_person_times": 40,
+      "post_reply_leads": 2, "eligible_reply_customers": 10,
+      "cta_rounds": 80, "silence_seconds": 100,
+      "silence_confirmed": true, "reviewed_questions": 20,
+      "scores": {"core": 75, "flow": 75, "cta": 75},
+      "human_review": {"source_type": "synthetic_test_fixture"}
+    },
+    {
+      "host": "synthetic-host-b", "hours": 10,
+      "lead_records": 10, "comment_person_times": 20,
+      "post_reply_leads": 1, "eligible_reply_customers": 10,
+      "cta_rounds": 40, "silence_seconds": 200,
+      "silence_confirmed": true, "reviewed_questions": 20,
+      "scores": {"core": 75, "flow": 75, "cta": 75},
+      "human_review": {"source_type": "synthetic_test_fixture"}
+    }
+  ]
+}
